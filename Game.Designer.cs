@@ -1,6 +1,6 @@
 ﻿namespace TheSnakeGame
 {
-    partial class Form1
+    partial class Game
     {
         /// <summary>
         /// Обязательная переменная конструктора.
