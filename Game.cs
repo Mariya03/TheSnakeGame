@@ -13,13 +13,13 @@ namespace TheSnakeGame
     public partial class Game : Form
     {
         Area area = new Area();
+        Snake snake = new Snake();
        
 
         public Game()
         {
             InitializeComponent();
             InitializeGame();
-            InitializeSnake();
         }
 
         private void InitializeGame()
@@ -31,13 +31,9 @@ namespace TheSnakeGame
             this.Controls.Add(area);
             area.Top = 100;
             area.Left = 100;
-            //area.Location = new Point(100, 100);
-            
+
+            snake.Render(this); 
         }
-         private void InitializeSnake()
-        {
-            PictureBox snake = new PictureBox();
-            Controls.Add(snake);
-        }
+         
     }
 }

@@ -25,9 +25,12 @@ namespace TheSnakeGame
             snakePixels.Add(snakePixel);
         }
 
-        public void Render()
-        {
-
+       public void Render(Form form)
+       {
+           foreach (var sp in snakePixels)
+          {
+               form.Controls.Add(sp);
+          }
         }
     }
 }
