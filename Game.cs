@@ -38,7 +38,7 @@ namespace TheSnakeGame
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-
+            snake.Move();
         }
 
         private void InitializeGame()
@@ -51,9 +51,49 @@ namespace TheSnakeGame
             area.Top = 100;
             area.Left = 100;
 
-            snake.Render(this); 
+            //adding snake body
+            snake.Render(this);
+
+            //add keyboard controller handler
+            this.KeyDown += new KeyEventHandler(Game_KeyDown);
+
+
         }
          
+        private void Game_KeyDown(object snder, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    if (snake.HorizontalVelocity != -1)
+                    {
+                        snake.HorizontalVelocity = 1;
+                    }
+                    snake.VerticalVelocity = 0;
+                    break;
+                case Keys.Left:
+                    if (snake.HorizontalVelocity != 1)
+                    {
+                        snake.HorizontalVelocity = -1;
+                    }
+                    snake.VerticalVelocity = 0;
+                    break;
+                case Keys.Down:
+                    if (snake.VerticalVelocity != -1)
+                    {
+                        snake.VerticalVelocity = 1;
+                    }
+                    snake.HorizontalVelocity = 0;
+                    break;
+                case Keys.Up:
+                    if (snake.VerticalVelocity !=1)
+                    {
+                        snake.VerticalVelocity = -1;
+                    }
+                    snake.HorizontalVelocity = 0;
+                    break;
+            }
+        }
         
     }
 }
