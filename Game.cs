@@ -36,6 +36,11 @@ namespace TheSnakeGame
             mainTimer.Start();
         }
 
+        private void GenerateFood()
+        {
+
+        }
+
         private void MainTimer_Tick(object sender, EventArgs e)
         {
             snake.Move();
