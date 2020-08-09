@@ -33,15 +33,9 @@ namespace TheSnakeGame
 
         private void InitializeTimer()
         {
-            mainTimer.Interval = 500;
+            mainTimer.Interval = 300;
             mainTimer.Tick += new EventHandler(MainTimer_Tick);
             mainTimer.Start();
-        }
-
-       private void RandomizeFoodLocation()
-       {
-            food.Top = rand.Next(0, 20) * 20;
-            food.Left = rand.Next(0, 20) * 20;
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
@@ -49,7 +43,22 @@ namespace TheSnakeGame
             snake.Move();
             SnakeFoodCollision();
             SnakeBorderCollision();
+            SnakeSelfCollision();
         }
+
+        //private void RandomizeFoodLocation()
+      // {
+            //food.Top = 100 + rand.Next(0, 20) * 20;
+           // food.Left = 100 + rand.Next(0, 20) * 20;
+        //}
+
+       // private void MainTimer_Tick(object sender, EventArgs e)
+       // {
+          //  snake.Move();
+           // SnakeFoodCollision();
+           // SnakeBorderCollision();
+           // SnakeSelfCollision();
+        //}
 
         private void InitializeGame()
         {
@@ -60,6 +69,9 @@ namespace TheSnakeGame
             this.Controls.Add(area);
             area.Top = 100;
             area.Left = 100;
+
+            //set score to 0
+            score = 0;
 
             //adding snake body
             snake.Render(this);
@@ -73,10 +85,32 @@ namespace TheSnakeGame
             //add keyboard controller handler
             this.KeyDown += new KeyEventHandler(Game_KeyDown);
 
-            //set score to 0
-            score = 0;
         }
-         
+
+        private void RandomizeFoodLocation()
+        {
+            food.Top = 100 + rand.Next(0, 20) * 20;
+            food.Left = 100 + rand.Next(0, 20) * 20;
+        }
+
+        private void SetFoodLocation()
+        {
+            bool touch;
+            do
+            {
+                RandomizeFoodLocation();
+                touch = false;
+                foreach (var sp in snake.snakePixels)
+                {
+                    if (sp.Location == food.Location)
+                    {
+                        touch = true;
+                        break;
+                    }
+                }
+            }
+            while (touch);
+        }
         private void SnakeBorderCollision()
         {
             if(!snake.snakePixels[0].Bounds.IntersectsWith(area.Bounds))
@@ -100,6 +134,7 @@ namespace TheSnakeGame
         {
             mainTimer.Stop();
             snake.snakePixels[0].BackColor = Color.Red;
+            snake.snakePixels[0].BringToFront();
             MessageBox.Show("Game over! Your score: " + score);
         }
 
@@ -127,7 +162,6 @@ namespace TheSnakeGame
                     {
                         snake.VerticalVelocity = 1;
                     }
-                    
                     break;
                 case Keys.Up:
                     snake.HorizontalVelocity = 0;
@@ -135,39 +169,40 @@ namespace TheSnakeGame
                     {
                         snake.VerticalVelocity = -1;
                     }
-                   
                     break;
                     
             }
         }
 
-        private void SetFoodLocation()
-        {
-            bool touch;
-            do
-            {
-                RandomizeFoodLocation();
-                touch = false;
-                foreach (var sp in snake.snakePixels)
-                {
-                    if (sp.Location == food.Location)
-                    {
-                        touch = true;
-                        break;
-                    }
-                }
-            }
-            while (!touch);
-        }
+       // private void SetFoodLocation()
+        //{
+           // bool touch;
+           // do
+           // {
+               // RandomizeFoodLocation();
+               // touch = false;
+              //  foreach (var sp in snake.snakePixels)
+              //  {
+                    //if (sp.Location == food.Location)
+                    //{
+                      //  touch = true;
+                       // break;
+                   // }
+               // }
+           // }
+          //  while (touch);
+       // }
         
         private void SnakeFoodCollision()
         {
             if(snake.snakePixels[0].Bounds.IntersectsWith(food.Bounds))
             {
-                //regenerate food
-                SetFoodLocation();
                 //increase score
                 score += 10;
+                //regenerate food
+               
+                SetFoodLocation();
+               
                 //add pixels 
                 int left = snake.snakePixels[snake.snakePixels.Count - 1].Left;
                 int top = snake.snakePixels[snake.snakePixels.Count - 1].Top;
