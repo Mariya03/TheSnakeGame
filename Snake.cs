@@ -12,7 +12,7 @@ namespace TheSnakeGame
     {
         public int HorizontalVelocity { get; set; } = 0;
         public int VerticalVelocity { get; set; } = 0;
-         public int Step { get; set; } = 20;
+         public int Step { get; set; } = 20    ;
 
 
        public List<PictureBox> snakePixels = new List<PictureBox>();

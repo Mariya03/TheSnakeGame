@@ -33,7 +33,7 @@ namespace TheSnakeGame
 
         private void InitializeTimer()
         {
-            mainTimer.Interval = 300;
+            mainTimer.Interval = 100;
             mainTimer.Tick += new EventHandler(MainTimer_Tick);
             mainTimer.Start();
         }
@@ -209,10 +209,10 @@ namespace TheSnakeGame
                 snake.AddPixel(left, top);
                 snake.Render(this);
                 //increase movement speed
-                if (mainTimer.Interval >= 20)
+                /*if (mainTimer.Interval >= 20)
                 {
                     mainTimer.Interval -= 20;
-                }
+                }*/
               }
            
         }
