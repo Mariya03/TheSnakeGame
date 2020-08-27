@@ -21,6 +21,7 @@ namespace TheSnakeGame
             //this.BackColor = Color.FromArgb(45, 45, 50);
             this.Height = 400;
             this.Width = 400;
+            //this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         }
         
 

@@ -20,7 +20,9 @@ namespace TheSnakeGame
         {
             this.Width = 20;
             this.Height = 20;
-            this.BackColor = Color.Green;
+            this.Image = (Image)Properties.Resources.ResourceManager.GetObject("food2");
+            //this.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.BackColor = Color.Transparent;
         }
     }
 }
