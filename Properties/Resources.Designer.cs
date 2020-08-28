@@ -133,6 +133,16 @@ namespace TheSnakeGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0_1e {
+            get {
+                object obj = ResourceManager.GetObject("0-1e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _0_1f {
             get {
                 object obj = ResourceManager.GetObject("0-1f", resourceCulture);
@@ -233,6 +243,16 @@ namespace TheSnakeGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _01e {
+            get {
+                object obj = ResourceManager.GetObject("01e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _01f {
             get {
                 object obj = ResourceManager.GetObject("01f", resourceCulture);
@@ -266,6 +286,16 @@ namespace TheSnakeGame.Properties {
         internal static System.Drawing.Bitmap food2 {
             get {
                 object obj = ResourceManager.GetObject("food2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap food3 {
+            get {
+                object obj = ResourceManager.GetObject("food3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

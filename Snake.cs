@@ -14,6 +14,7 @@ namespace TheSnakeGame
         public int VerticalVelocity { get; set; } = 0;
         public int Step { get; set; } = 20;
         public int first = 1;
+        public String second = "";
 
 
        public List<PictureBox> snakePixels = new List<PictureBox>();
@@ -96,6 +97,11 @@ namespace TheSnakeGame
                 snakePixels[i].Image = snakePixels[i - 1].Image;
             }
 
+            if (second != "")
+            {
+                snakePixels[1].Image = (Image)Properties.Resources.ResourceManager.GetObject(second);
+                second = "";
+            }
             snakePixels[0].Left += this.HorizontalVelocity * this.Step;
             snakePixels[0].Top += this.VerticalVelocity * this.Step;
             if (first == 1)

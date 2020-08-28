@@ -281,6 +281,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="animal-snake_icon-icons.com_58196.ico" />
+    <None Include="Resources\food3.png" />
+    <None Include="Resources\eat4.png" />
+    <None Include="Resources\eat3.png" />
+    <None Include="Resources\eat2.png" />
+    <None Include="Resources\eat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
